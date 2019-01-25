@@ -3,6 +3,7 @@ import numpy as np
 import cv2
 import argparse
 import os
+import random
 
 # construct the argument parser and parse input image arguent
 ap = argparse.ArgumentParser()
@@ -32,7 +33,7 @@ def auto_canny(image, sigma=0.33):
 edged = auto_canny(gray)
 
 cnt = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-cnt = cnt[1]
+cnt = cnt[0]
 output = image.copy()
 
 height = bg.shape[0]
